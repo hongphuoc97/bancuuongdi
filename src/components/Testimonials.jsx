@@ -26,7 +26,7 @@ const Testimonials = () => {
       <h2 className="text-3xl md:text-4xl font-bold mb-12 text-dark">Khách hàng nói gì về chúng tôi</h2>
       <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {testimonialsData.map((testimonial, index) => (
-          <figure key={index} className="bg-light p-8 rounded-lg shadow-md flex flex-col items-center">
+          <figure data-index={index} key={testimonial.author} className="bg-light p-8 rounded-lg shadow-md flex flex-col items-center">
             <QuoteIcon />
             <blockquote className="mt-4">
               <p className="text-lg italic text-gray-700">"{testimonial.quote}"</p>

@@ -1,4 +1,7 @@
 import React from 'react';
+import PhoneIcon from './PhoneIcon';
+import MailIcon from './MailIcon';
+import LocationIcon from './LocationIcon';
 
 // Social Media Icons
 const SocialIcon = ({ href, children }) => (
@@ -60,16 +63,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-dark">Thông tin liên hệ</h3>
             <ul className="space-y-2 text-secondary">
               <li className="flex items-start">
-                <span className="mt-1 mr-2 text-primary">&#9742;</span>
-                <a href="tel:0123456789" className="hover:text-primary">Hotline: 0123.456.789</a>
+                <PhoneIcon />
+                <a href="tel:0123456789" className="hover:text-primary ml-2">Hotline: 0123.456.789</a>
               </li>
               <li className="flex items-start">
-                <span className="mt-1 mr-2 text-primary">&#9993;</span>
-                <a href="mailto:contact@bancuuongtoilai.com" className="hover:text-primary">contact@bancuuongtoilai.com</a>
+                <MailIcon />
+                <a href="mailto:contact@bancuuongtoilai.com" className="hover:text-primary ml-2">contact@bancuuongtoilai.com</a>
               </li>
               <li className="flex items-start">
-                <span className="mt-1 mr-2 text-primary">&#127968;</span>
-                <span>Hải Châu, Đà Nẵng</span>
+                <LocationIcon />
+                <span className="ml-2">Hải Châu, Đà Nẵng</span>
               </li>
             </ul>
           </div>

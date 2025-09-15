@@ -51,7 +51,7 @@ const Services = () => {
       <p className="max-w-3xl mx-auto text-lg text-secondary mb-12">An toàn, tiện lợi và chuyên nghiệp. Chúng tôi cung cấp các giải pháp di chuyển phù hợp với mọi nhu cầu của bạn.</p>
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         {servicesData.map((service, index) => (
-          <ServiceItem key={index} icon={service.icon} title={service.title} description={service.description} />
+          <ServiceItem data-index={index} key={service.title} icon={service.icon} title={service.title} description={service.description} />
         ))}
       </div>
     </section>
