@@ -1,19 +1,23 @@
 import React from 'react';
 
-const Button = ({ href = "#", children, icon, variant = 'primary' }) => {
-  const baseClasses = "inline-flex items-center gap-2 py-2.5 px-6 rounded-lg font-semibold no-underline transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5";
-
+/**
+ * A reusable button component that supports three variants (primary,
+ * secondary and accent) and accepts an optional icon. Additional
+ * props are forwarded to the underlying anchor element so that callers
+ * can attach onClick handlers or other attributes.
+ */
+const Button = ({ href = '#', children, icon, variant = 'primary', ...rest }) => {
+  // Base styling shared across all button variants
+  const baseClasses =
+    'inline-flex items-center gap-2 py-2.5 px-6 rounded-lg font-semibold no-underline transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5';
+  // Define the colour palette for each variant
   const variants = {
-    primary: "bg-primary text-white hover:bg-primary-dark",
-    secondary: "bg-white text-primary hover:bg-gray-100",
-    accent: "bg-accent text-white hover:bg-accent-dark"
+    primary: 'bg-primary text-white hover:bg-primary-dark',
+    secondary: 'bg-white text-primary hover:bg-gray-100',
+    accent: 'bg-accent text-white hover:bg-accent-dark',
   };
-
   return (
-    <a
-      href={href}
-      className={`${baseClasses} ${variants[variant]}`}
-    >
+    <a href={href} className={`${baseClasses} ${variants[variant]}`} {...rest}>
       {icon}
       {children}
     </a>

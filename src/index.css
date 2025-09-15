@@ -1,3 +1,6 @@
+/*
+ * This file imports the Tailwind CSS framework. We intentionally leave the
+ * preflight import commented out because Vite handles it automatically.
+ */
 /* @import "tailwindcss/preflight"; */
 @import "tailwindcss";
-
