@@ -46,8 +46,8 @@ const Footer = () => {
   ];
 
   const contactInfo = [
-    { icon: <PhoneIcon />, text: 'Hotline: 0123.456.789', href: 'tel:0123456789' },
-    { icon: <MailIcon />, text: 'contact@bancuuongtoilai.com', href: 'mailto:contact@bancuuongtoilai.com' },
+    { icon: <PhoneIcon />, text: 'Hotline: 0345.421.303', href: 'tel:0345421303' },
+    { icon: <MailIcon />, text: 'bancuuongdi@gmail.com', href: 'mailto:bancuuongdi@gmail.com' },
     { icon: <LocationIcon />, text: 'Hải Châu, Đà Nẵng', href: '#' },
   ];
 
@@ -97,7 +97,7 @@ const Footer = () => {
           <div className="space-y-5">
             <h3 className="text-lg font-semibold tracking-wider text-white uppercase">Gọi ngay!</h3>
             <a
-              href="tel:0123456789"
+              href="tel:0345421303"
               className="inline-block bg-primary text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-primary-dark transform hover:-translate-y-1 transition-all duration-300 shadow-lg"
             >
               0123.456.789

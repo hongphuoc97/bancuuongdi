@@ -13,8 +13,9 @@ const Button = ({ href = '#', children, icon, variant = 'primary', ...rest }) =>
   // Define the colour palette for each variant
   const variants = {
     primary: 'bg-primary text-white hover:bg-primary-dark',
-    secondary: 'bg-white text-primary hover:bg-gray-100',
-    accent: 'bg-accent text-white hover:bg-accent-dark',
+    secondary: 'bg-white text-primary hover:bg-gray-100 hover:text-dark',
+    accent: 'bg-accent text-dark hover:bg-accent-dark',
+    outline: 'bg-transparent border-2 border-white text-white hover:bg-white hover:text-black py-2 px-4',
   };
   return (
     <a href={href} className={`${baseClasses} ${variants[variant]}`} {...rest}>

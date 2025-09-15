@@ -1,36 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
 import PhoneIcon from './PhoneIcon';
+import otoImage from '../assets/oto.png';
+import xemayImage from '../assets/xemay.png';
+
+const images = [otoImage, xemayImage];
 
 const Hero = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsMounted(true), 100);
-    return () => clearTimeout(timer);
+    const mountTimer = setTimeout(() => setIsMounted(true), 100);
+    const imageTimer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => {
+      clearTimeout(mountTimer);
+      clearInterval(imageTimer);
+    };
   }, []);
 
   return (
     <section
       id="hero"
-      className="relative flex items-center justify-center h-screen min-h-[500px] bg-cover bg-center text-white overflow-hidden"
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1533496909133-73c3a2a9d5d8?q=80&w=2070&auto=format&fit=crop')",
-      }}
+      className="relative flex items-center justify-center h-screen min-h-[500px] text-white overflow-hidden"
     >
-      {/* Background Animation & Overlay */}
-      <div 
-        className={`absolute inset-0 bg-black/60 transition-transform duration-[2000ms] ease-in-out ${isMounted ? 'scale-100' : 'scale-125'}`}
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1533496909133-73c3a2a9d5d8?q=80&w=2070&auto=format&fit=crop')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
+      {/* Image Carousel */}
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
+            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{ backgroundImage: `url(${image})` }}
+        />
+      ))}
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
 
+      {/* Text Content */}
       <div className="relative z-10 text-center px-4">
         <div 
           className={`transition-all duration-1000 ease-out ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
@@ -41,13 +53,16 @@ const Hero = () => {
           <p className="text-lg md:text-2xl mb-8 max-w-3xl mx-auto text-gray-200 text-shadow-md">
             An toàn là trên hết. Tận hưởng cuộc vui, việc đưa bạn và xe về nhà an toàn đã có chúng tôi lo.
           </p>
+          <p className="text-lg md:text-2xl mb-8 max-w-3xl mx-auto text-gray-200 text-shadow-md">
+            Đã uống rượu bia thì không lái xe.
+          </p>
         </div>
         <div 
           className={`transition-all duration-1000 ease-out delay-300 ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="#contact" variant="secondary" icon={<PhoneIcon />} size="lg">
-              Gọi ngay: 0123.456.789
+            <Button href="#contact" variant="outline" icon={<PhoneIcon />} size="lg">
+              Gọi ngay: 0345.421.303
             </Button>
             <Button href="#services" variant="outline" size="lg">
               Xem Dịch Vụ
