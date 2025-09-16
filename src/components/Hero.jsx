@@ -61,7 +61,7 @@ const Hero = () => {
           className={`transition-all duration-1000 ease-out delay-300 ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="#contact" variant="outline" icon={<PhoneIcon />} size="lg">
+            <Button href="tel:0345421303" variant="outline" icon={<PhoneIcon />} size="lg">
               Gọi ngay: 0345.421.303
             </Button>
             <Button href="#services" variant="outline" size="lg">

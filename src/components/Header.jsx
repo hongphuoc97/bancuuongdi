@@ -30,7 +30,7 @@ const Logo = ({ onClick, isScrolled }) => (
     </a>
 );
 
-export const Header = () => {
+export const Header = ({ onBookNowClick }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('#hero');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -117,7 +117,7 @@ export const Header = () => {
         </nav>
 
         <div className="hidden lg:block ml-4">
-          <Button href="#contact" icon={<PhoneIcon />} variant="primary" onClick={() => handleLinkClick('#contact')}>
+          <Button href="#!" icon={<PhoneIcon />} variant="primary" onClick={onBookNowClick}>
             Đặt xe ngay
           </Button>
         </div>
@@ -167,12 +167,12 @@ export const Header = () => {
                 ))}
                 <li className="pt-4 px-4">
                 <Button
-                    href="#contact"
+                    href="#!"
                     icon={<PhoneIcon />}
                     variant="accent"
                     onClick={() => {
                         closeMenu();
-                        handleLinkClick('#contact');
+                        onBookNowClick();
                     }}
                     fullWidth
                 >

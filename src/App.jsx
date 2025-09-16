@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
+import BookingPopup from './components/BookingPopup';
 
 
 /**
@@ -12,15 +13,21 @@ import Footer from './components/Footer';
  * testimonials and finally the footer.
  */
 function App() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openPopup = () => setIsPopupOpen(true);
+  const closePopup = () => setIsPopupOpen(false);
+
   return (
     <div>
-      <Header />
+      <Header onBookNowClick={openPopup} />
       <main>
-        <Hero />
+        <Hero onBookNowClick={openPopup} />
         <Services />
         <Testimonials />
       </main>
       <Footer />
+      <BookingPopup isOpen={isPopupOpen} onClose={closePopup} />
     </div>
   );
 }

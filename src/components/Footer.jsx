@@ -100,7 +100,7 @@ const Footer = () => {
               href="tel:0345421303"
               className="inline-block bg-primary text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-primary-dark transform hover:-translate-y-1 transition-all duration-300 shadow-lg"
             >
-              0123.456.789
+              0345421303
             </a>
             <div className="pt-4">
               <h4 className="text-md font-semibold text-white mb-3">Kết nối với chúng tôi</h4>
