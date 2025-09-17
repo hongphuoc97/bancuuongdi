@@ -23,8 +23,8 @@ const NavLink = ({ href, text, isActive, onClick, isScrolled }) => (
   </a>
 );
 
-const Logo = ({ onClick, isScrolled }) => (
-    <a href="#hero" className={`${isScrolled ? 'flex items-center gap-3 group bg-gray-900' : 'flex items-center gap-3 group'}`} onClick={onClick}>
+const Logo = ({ onClick, cssClass }) => (
+    <a href="#hero" className={cssClass} onClick={onClick}>
         <img src={logo} alt="Bạn Cứ Uống, Tôi Lái" className="h-12" />
         <span>Bạn cứ uống, tôi lái</span>
     </a>
@@ -34,6 +34,9 @@ export const Header = ({ onBookNowClick }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('#hero');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [logoStyle, setLogoStyle] = useState('text-white flex items-center gap-3 group');
+  const [navItemStyle, setNavItemStyle] = useState('sticky top-0 z-50 transition-all duration-300 bg-gray-900 text-gray-300');
+  // const [navItemStyle, setNavItemStyle] = useState('');
   const headerRef = useRef(null);
 
   const navLinks = [
@@ -92,17 +95,15 @@ export const Header = ({ onBookNowClick }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [activeLink, navLinks]); // Rerun effect when activeLink changes to ensure consistency
 
+  // const a = 'sticky top-0 z-50 transition-all duration-300 bg-light border-b border-white' 
+
   return (
     <header 
       ref={headerRef} 
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-gray-900 text-gray-300' 
-          : 'bg-gray-900 text-gray-300'
-      }`}
+      className={navItemStyle}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center p-4 md:px-6">
-        <Logo onClick={() => handleLinkClick('#hero')} isScrolled={isScrolled} />
+        <Logo onClick={() => handleLinkClick('#hero')} cssClass={logoStyle} />
 
         <nav className="hidden lg:flex items-center space-x-2">
           {navLinks.map((link) => (

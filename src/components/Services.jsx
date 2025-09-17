@@ -1,7 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import SafeDriverIcon from './SafeDriverIcon';
 import MapRouteIcon from './MapRouteIcon';
 import PrivateDriverIcon from './PrivateDriverIcon';
+import RideShareIcon from './RideShareIcon';
+import CarRescueIcon from './CarRescueIcon';
+import MotorbikeRescueIcon from './MotorbikeRescueIcon';
+import { useInView } from '../hooks/useInView';
 
 const servicesData = [
   {
@@ -19,33 +23,22 @@ const servicesData = [
     title: 'Tài xế riêng theo giờ',
     description: 'Dịch vụ chuyên nghiệp, linh hoạt cho các chuyến công tác, tham dự sự kiện hoặc các nhu cầu di chuyển cá nhân.',
   },
+  {
+    icon: <RideShareIcon />,
+    title: 'Xe tiện chuyến',
+    description: 'Dịch vụ đi chung xe, tiết kiệm chi phí cho các chuyến đi giữa các thành phố hoặc ra sân bay.',
+  },
+  {
+    icon: <CarRescueIcon />,
+    title: 'Cứu hộ xe ô tô',
+    description: 'Hỗ trợ nhanh chóng khi xe của bạn gặp sự cố trên đường, từ hết bình, thủng lốp đến các vấn đề phức tạp hơn.',
+  },
+  {
+    icon: <MotorbikeRescueIcon />,
+    title: 'Cứu hộ xe máy',
+    description: 'Đừng để sự cố xe máy làm gián đoạn hành trình của bạn. Chúng tôi có mặt để giúp bạn mọi lúc, mọi nơi.',
+  },
 ];
-
-const useInView = (options) => {
-  const ref = useRef(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsInView(true);
-        observer.disconnect();
-      }
-    }, options);
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [ref, options]);
-
-  return [ref, isInView];
-};
 
 const ServiceItem = ({ icon, title, description, isInView, delay }) => (
   <div 
