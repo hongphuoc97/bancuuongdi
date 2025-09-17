@@ -113,6 +113,8 @@ const BookingPopup = ({ isOpen, onClose }) => {
   const [showStopPoint, setShowStopPoint] = useState(false);
   const [estimatedCost, setEstimatedCost] = useState(0);
   const [driverType, setDriverType] = useState('oto');
+  const [customerName, setCustomerName] = useState('');
+  const [customerPhone, setCustomerPhone] = useState('');
 
   const getDefaultPickupTime = () => {
     const now = new Date();
@@ -216,7 +218,7 @@ const BookingPopup = ({ isOpen, onClose }) => {
         </div>
         <div className="grid grid-cols-1 gap-8">
           <form className="space-y-5">
-            <div className="mb-4">
+            <div>
               <label className="block text-gray-700 font-bold mb-2">Loại tài xế</label>
               <div className="grid grid-cols-3 gap-2 rounded-lg p-1 bg-gray-100">
                 <label>
@@ -231,6 +233,34 @@ const BookingPopup = ({ isOpen, onClose }) => {
                   <input type="radio" name="driverType" value="full" className="peer sr-only" checked={driverType === 'full'} onChange={(e) => setDriverType(e.target.value)} />
                   <div className="text-center py-2 px-3 rounded-md cursor-pointer text-gray-600 peer-checked:bg-white peer-checked:text-primary peer-checked:shadow font-semibold transition-all duration-200">Thuê xe & tài</div>
                 </label>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label htmlFor="customerName" className="block text-gray-700 font-bold mb-2">Tên của bạn</label>
+                <input
+                  type="text"
+                  id="customerName"
+                  placeholder="Nhập họ và tên"
+                  className="w-full px-3 py-2 border rounded-lg bg-gray-50"
+                  value={customerName}
+                  onChange={(e) => setCustomerName(e.target.value)}
+                  autoComplete="name"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="customerPhone" className="block text-gray-700 font-bold mb-2">Số điện thoại</label>
+                <input
+                  type="tel"
+                  id="customerPhone"
+                  placeholder="Nhập số điện thoại"
+                  className="w-full px-3 py-2 border rounded-lg bg-gray-50"
+                  value={customerPhone}
+                  onChange={(e) => setCustomerPhone(e.target.value)}
+                  autoComplete="tel"
+                  required
+                />
               </div>
             </div>
             <div className="relative">
