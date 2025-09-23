@@ -42,7 +42,7 @@ const servicesData = [
 
 const ServiceItem = ({ icon, title, description, isInView, delay }) => (
   <div 
-    className={`bg-white p-8 rounded-2xl shadow-lg hover:shadow-primary/20 transition-all duration-500 flex flex-col items-center text-center transform hover:-translate-y-2 border-t-4 border-transparent hover:border-primary ${
+    className={`bg-white p-3 rounded-2xl shadow-lg hover:shadow-primary/20 transition-all duration-500 flex flex-col items-center text-center transform hover:-translate-y-2 border-t-4 border-transparent hover:border-primary ${
       isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
     }`}
     style={{ transitionDelay: delay }}
@@ -59,14 +59,14 @@ const Services = () => {
   return (
     <section id="services" className="text-center py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900">
+        <h3 className="text-3xl md:text-5xl font-extrabold mb-2 text-gray-900">
           Dịch vụ của chúng tôi
-        </h2>
-        <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 mb-16">
+        </h3>
+        <p className="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 mb-8">
           An toàn, tiện lợi và chuyên nghiệp. Chúng tôi cung cấp các giải pháp di chuyển phù hợp với mọi nhu cầu của bạn.
         </p>
       </div>
-      <div ref={ref} className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+      <div ref={ref} className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-8">
         {servicesData.map((service, index) => (
           <ServiceItem 
             key={service.title} 

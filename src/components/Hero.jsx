@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative flex items-center justify-center min-h-[500px] md:min-h-[calc(100vh-80px)] text-white overflow-hidden"
+      className="relative flex items-center justify-center min-h-[500px] md:min-h-[calc(100vh+80px)] text-white overflow-hidden"
     >
       {/* Image Carousel */}
       {images.map((image, index) => (

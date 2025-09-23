@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
+import News from './components/News';
 import BookingPopup from './components/BookingPopup';
 
 
@@ -24,6 +25,7 @@ function App() {
       <main>
         <Hero onBookNowClick={openPopup} />
         <Services />
+        <News />
         <Testimonials />
       </main>
       <Footer />

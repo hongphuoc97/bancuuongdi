@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from 'react';
 import Button from './Button';
 import PhoneIcon from './icon/web/PhoneIcon';
@@ -12,11 +14,11 @@ const NavLink = ({ href, text, isActive, onClick, isScrolled }) => (
     className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
       isScrolled
         ? isActive
-          ? 'text-primary bg-white'
+          ? 'text-black bg-white'
           : 'text-gray-200 hover:text-white'
         : isActive
           ? 'text-white bg-primary'
-          : 'text-gray-700 hover:bg-primary/10 hover:text-primary'
+          : 'text-white hover:bg-primary/10 hover:text-primary'
     }`}
   >
     {text}
@@ -42,6 +44,7 @@ export const Header = ({ onBookNowClick }) => {
   const navLinks = [
     { href: '#hero', text: 'Trang chủ' },
     { href: '#services', text: 'Dịch vụ' },
+    { href: '#news', text: 'Tin tức' },
     { href: '#testimonials', text: 'Đánh giá' },
     { href: '#contact', text: 'Liên hệ' },
   ];
