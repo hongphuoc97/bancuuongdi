@@ -4,7 +4,7 @@ import MapRouteIcon from './MapRouteIcon';
 import PrivateDriverIcon from './PrivateDriverIcon';
 import RideShareIcon from './RideShareIcon';
 import CarRescueIcon from './CarRescueIcon';
-import MotorbikeRescueIcon from './MotorbikeRescueIcon';
+import BikeRescueIcon from './BikeRescueIcon';
 import { useInView } from '../hooks/useInView';
 
 const servicesData = [
@@ -34,7 +34,7 @@ const servicesData = [
     description: 'Hỗ trợ nhanh chóng khi xe của bạn gặp sự cố trên đường, từ hết bình, thủng lốp đến các vấn đề phức tạp hơn.',
   },
   {
-    icon: <MotorbikeRescueIcon />,
+    icon: <BikeRescueIcon />,
     title: 'Cứu hộ xe máy',
     description: 'Đừng để sự cố xe máy làm gián đoạn hành trình của bạn. Chúng tôi có mặt để giúp bạn mọi lúc, mọi nơi.',
   },
