@@ -66,7 +66,7 @@ const Services = () => {
           An toàn, tiện lợi và chuyên nghiệp. Chúng tôi cung cấp các giải pháp di chuyển phù hợp với mọi nhu cầu của bạn.
         </p>
       </div>
-      <div ref={ref} className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div ref={ref} className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
         {servicesData.map((service, index) => (
           <ServiceItem 
             key={service.title} 

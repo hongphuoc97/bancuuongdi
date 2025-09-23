@@ -1,10 +1,7 @@
-import React from 'react';
-
-const MotorbikeRescueIcon = () => (
-  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-    width="100%" viewBox="0 0 512 480" enable-background="new 0 0 512 480" xml:space="preserve">
-    <path fill="#000000" opacity="1.000000" stroke="none"
-      d="
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100%" viewBox="0 0 512 480" enable-background="new 0 0 512 480" xml:space="preserve">
+<path fill="#000000" opacity="1.000000" stroke="none" 
+	d="
 M345.463776,116.089218 
 	C349.161346,118.233459 350.052643,121.674492 351.133850,125.004120 
 	C351.990540,127.642235 352.190979,130.541870 354.370361,133.119095 
@@ -129,7 +126,4 @@ M204.320908,259.177643
 	C199.092789,248.974457 193.947617,252.732849 187.748413,257.261200 
 	C194.090027,257.953217 198.828720,258.470306 204.320908,259.177643 
 z"/>
-  </svg>
-);
-
-export default MotorbikeRescueIcon;
+</svg>
