@@ -1,10 +1,10 @@
 import React from 'react';
-import SafeDriverIcon from './SafeDriverIcon';
-import MapRouteIcon from './MapRouteIcon';
-import PrivateDriverIcon from './PrivateDriverIcon';
-import RideShareIcon from './RideShareIcon';
-import CarRescueIcon from './CarRescueIcon';
-import BikeRescueIcon from './BikeRescueIcon';
+import SafeDriverIcon from './icon/service/SafeDriverIcon';
+import MapRouteIcon from './icon/service/MapRouteIcon';
+import PrivateDriverIcon from './icon/service/PrivateDriverIcon';
+import RideShareIcon from './icon/service/RideShareIcon';
+import CarRescueIcon from './icon/service/CarRescueIcon';
+import BikeRescueIcon from './icon/service/BikeRescueIcon';
 import { useInView } from '../hooks/useInView';
 
 const servicesData = [

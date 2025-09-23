@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Button from './Button';
-import PhoneIcon from './PhoneIcon';
-import MenuIcon from './MenuIcon';
-import CloseIcon from './CloseIcon';
+import PhoneIcon from './icon/web/PhoneIcon';
+import MenuIcon from './icon/web/MenuIcon';
+import CloseIcon from './icon/web/CloseIcon';
 import logo from '../assets/logo.png';
 
 const NavLink = ({ href, text, isActive, onClick, isScrolled }) => (
@@ -118,7 +118,7 @@ export const Header = ({ onBookNowClick }) => {
         </nav>
 
         <div className="hidden lg:block ml-4">
-          <Button href="#!" icon={<PhoneIcon />} variant="primary" onClick={onBookNowClick}>
+          <Button href="tel:0345421303" icon={<PhoneIcon />} variant="primary" >
             Đặt xe ngay
           </Button>
         </div>

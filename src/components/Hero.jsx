@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
-import PhoneIcon from './PhoneIcon';
+import PhoneIcon from './icon/web/PhoneIcon';
 import otoImage from '../assets/oto.png';
 import xemayImage from '../assets/xemay.png';
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import CloseIcon from './CloseIcon';
-import ClockIcon from './ClockIcon';
-import PlusIcon from './PlusIcon';
-import MinusIcon from './MinusIcon';
+import CloseIcon from './icon/web/CloseIcon';
+import ClockIcon from './icon/web/ClockIcon';
+import PlusIcon from './icon/web/PlusIcon';
+import MinusIcon from './icon/web/MinusIcon';
 
 // This data can be moved to a separate file or fetched from an API
 const districtsData = [

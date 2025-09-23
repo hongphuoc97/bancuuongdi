@@ -1,7 +1,7 @@
 import React from 'react';
-import PhoneIcon from './PhoneIcon';
-import MailIcon from './MailIcon';
-import LocationIcon from './LocationIcon';
+import PhoneIcon from './icon/web/PhoneIcon';
+import MailIcon from './icon/web/MailIcon';
+import LocationIcon from './icon/web/LocationIcon';
 
 /**
  * Social media link wrapper with enhanced styling.
