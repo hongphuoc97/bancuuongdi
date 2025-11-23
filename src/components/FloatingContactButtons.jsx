@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PhoneIcon from './icon/web/PhoneIcon';
 
 const MessengerIcon = () => (
@@ -14,7 +14,6 @@ const ZaloIcon = () => (
 );
 
 const FloatingContactButtons = () => {
-  const [isOpen, setIsOpen] = useState(true);
 
   // Inject shake animation styles
   React.useEffect(() => {
@@ -91,38 +90,7 @@ const FloatingContactButtons = () => {
               </a>
             ))}
           </div>
-
-        {/* Main Toggle Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="w-12 h-12 md:w-14 md:h-14 bg-primary hover:bg-primary-dark text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95"
-          title="Liên hệ"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className={`w-6 h-6 md:w-7 md:h-7 transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 4v16m8-8H4"
-            />
-          </svg>
-        </button>
       </div>
-
-      {/* Backdrop when open */}
-      {isOpen && (
-        <button
-          onClick={() => setIsOpen(false)}
-          className="fixed inset-0 z-30 bg-transparent cursor-default"
-          aria-label="Close contact menu"
-        />
-      )}
     </>
   );
 };
