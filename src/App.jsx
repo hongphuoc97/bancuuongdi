@@ -6,6 +6,7 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import News from './components/News';
 import BookingPopup from './components/BookingPopup';
+import FloatingContactButtons from './components/FloatingContactButtons';
 
 
 /**
@@ -29,6 +30,7 @@ function App() {
         <Testimonials />
       </main>
       <Footer />
+      <FloatingContactButtons />
       <BookingPopup isOpen={isPopupOpen} onClose={closePopup} />
     </div>
   );

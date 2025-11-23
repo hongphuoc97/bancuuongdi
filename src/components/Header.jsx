@@ -38,7 +38,6 @@ export const Header = ({ onBookNowClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [logoStyle, setLogoStyle] = useState('text-white flex items-center gap-3 group');
   const [navItemStyle, setNavItemStyle] = useState('sticky top-0 z-50 transition-all duration-300 bg-gray-900 text-gray-300');
-  // const [navItemStyle, setNavItemStyle] = useState('');
   const headerRef = useRef(null);
 
   const navLinks = [
@@ -54,11 +53,22 @@ export const Header = ({ onBookNowClick }) => {
 
   const handleLinkClick = (href) => {
     setActiveLink(href);
-    if (href !== '#hero') {
-      setIsScrolled(true);
+    closeMenu(); // Đóng menu mobile khi click vào link
+    
+    // Scroll to section
+    if (href === '#hero') {
+      // Scroll to top for hero
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setIsScrolled(false);
     } else {
-      if (window.scrollY <= 100) {
-        setIsScrolled(false);
+      // Scroll to other sections
+      const sectionId = href.replace('#', '');
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const headerHeight = headerRef.current?.offsetHeight || 80;
+        const elementPosition = section.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+        setIsScrolled(true);
       }
     }
   };
@@ -69,7 +79,7 @@ export const Header = ({ onBookNowClick }) => {
       if (window.scrollY > 100) {
         setIsScrolled(true);
       } else {
-        // Only change back to transparent if we are not on a sub-page
+        // Only change back to transparent if we are at the top
         if (activeLink === '#hero') {
           setIsScrolled(false);
         }
@@ -79,16 +89,19 @@ export const Header = ({ onBookNowClick }) => {
       const sections = navLinks.map(link => document.querySelector(link.href));
       const scrollPosition = window.scrollY + (headerRef.current?.offsetHeight || 0) + 50;
       let currentSection = '';
+      
       for (const section of sections) {
         if (section && scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
           currentSection = `#${section.id}`;
           break;
         }
       }
+      
       // If no section is active, and we are at the top, set hero as active
       if (!currentSection && window.scrollY < 200) {
         currentSection = '#hero';
       }
+      
       if(currentSection) {
         setActiveLink(currentSection);
       }
@@ -96,32 +109,36 @@ export const Header = ({ onBookNowClick }) => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeLink, navLinks]); // Rerun effect when activeLink changes to ensure consistency
-
-  // const a = 'sticky top-0 z-50 transition-all duration-300 bg-light border-b border-white' 
+  }, [activeLink, navLinks]);
 
   return (
     <header 
       ref={headerRef} 
       className={navItemStyle}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center p-4 md:px-6">
-        <Logo onClick={() => handleLinkClick('#hero')} cssClass={logoStyle} />
+      <div className="max-w-7xl mx-auto flex justify-between items-center p-3 md:p-4 lg:px-6 md:py-4">
+        <Logo 
+          onClick={() => handleLinkClick('#hero')} 
+          cssClass="text-white flex items-center gap-2 md:gap-3 group text-sm md:text-base cursor-pointer" 
+        />
 
-        <nav className="hidden lg:flex items-center space-x-2">
+        <nav className="hidden lg:flex items-center space-x-1">
           {navLinks.map((link) => (
             <NavLink 
               key={link.text} 
               {...link} 
               isActive={activeLink === link.href} 
-              onClick={() => handleLinkClick(link.href)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleLinkClick(link.href);
+              }}
               isScrolled={isScrolled}
             />
           ))}
         </nav>
 
         <div className="hidden lg:block ml-4">
-          <Button href="tel:0345421303" icon={<PhoneIcon />} variant="primary" >
+          <Button href="tel:0345421303" icon={<PhoneIcon />} variant="primary">
             Đặt xe ngay
           </Button>
         </div>
@@ -140,51 +157,44 @@ export const Header = ({ onBookNowClick }) => {
         </div>
       </div>
 
-      {/* Mobile Menu with Transition */}
+      {/* Mobile Menu */}
       <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-        menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        menuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
       }`}>
-        <div className={isScrolled ? 'bg-primary' : 'bg-white'}>
-            <nav className="px-2 pt-2 pb-4 border-t border-gray-200/50">
-            <ul className="flex flex-col space-y-2">
-                {navLinks.map((link) => (
-                <li key={link.text}>
-                    <a
-                    href={link.href}
-                    onClick={() => {
-                        closeMenu();
-                        handleLinkClick(link.href);
-                    }}
-                    className={`block px-4 py-3 rounded-md text-base font-medium transition-colors duration-300 ${
-                        isScrolled
-                        ? activeLink === link.href
-                            ? 'text-primary bg-white'
-                            : 'text-gray-200 hover:text-white'
-                        : activeLink === link.href
-                            ? 'text-white bg-primary'
-                            : 'text-gray-700 hover:bg-primary/10'
-                    }`}
-                    >
-                    {link.text}
-                    </a>
-                </li>
-                ))}
-                <li className="pt-4 px-4">
-                <Button
-                    href="#!"
-                    icon={<PhoneIcon />}
-                    variant="accent"
-                    onClick={() => {
-                        closeMenu();
-                        onBookNowClick();
-                    }}
-                    fullWidth
-                >
-                    Đặt xe ngay
-                </Button>
-                </li>
-            </ul>
-            </nav>
+        <div className={`${isScrolled ? 'bg-primary' : 'bg-gray-800'} px-4 py-4`}>
+          <nav className="space-y-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.text}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick(link.href);
+                }}
+                className={`block px-4 py-3 rounded-md text-base font-medium transition-colors duration-300 ${
+                  isScrolled
+                    ? activeLink === link.href
+                      ? 'text-primary bg-white'
+                      : 'text-gray-200 hover:text-white'
+                    : activeLink === link.href
+                      ? 'text-white bg-primary'
+                      : 'text-gray-100 hover:bg-primary/20'
+                }`}
+              >
+                {link.text}
+              </a>
+            ))}
+            <div className="pt-3 px-4">
+              <Button
+                href="tel:0345421303"
+                icon={<PhoneIcon />}
+                variant="accent"
+                fullWidth={true}
+              >
+                Đặt xe ngay
+              </Button>
+            </div>
+          </nav>
         </div>
       </div>
     </header>

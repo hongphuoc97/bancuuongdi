@@ -51,17 +51,47 @@ const Footer = () => {
     { icon: <LocationIcon />, text: 'Hải Châu, Đà Nẵng', href: '#' },
   ];
 
+  const services = [
+    'Lái xe hộ tự lái',
+    'Lái xe sự kiện',
+    'Lái xe công tác',
+    'Dịch vụ 24/7',
+  ];
+
+  const benefits = [
+    'Tài xế chuyên nghiệp',
+    'Giá cạnh tranh',
+    'An toàn tuyệt đối',
+    'Phục vụ nhanh chóng',
+  ];
+
   return (
-    <footer id="contact" className="bg-gray-900 text-gray-300">
-      <div className="max-w-7xl mx-auto pt-16 pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 text-center md:text-left">
+    <footer id="contact" className="bg-gray-900 text-gray-300 min-h-screen flex flex-col justify-between">
+      <div className="max-w-7xl mx-auto pt-24 pb-12 px-4 sm:px-6 lg:px-8 flex-grow">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-8">
           
           {/* About Section */}
           <div className="lg:col-span-1 md:col-span-2 space-y-4">
             <h3 className="text-2xl font-bold text-white">Bạn Cứ Uống, Tôi Lái</h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 text-sm">
               Dịch vụ lái xe hộ chuyên nghiệp, an toàn và đáng tin cậy. Chúng tôi luôn sẵn sàng phục vụ bạn 24/7 tại Đà Nẵng.
             </p>
+            <div className="pt-4 space-y-2">
+              <p className="text-xs text-gray-500">Giờ hoạt động:</p>
+              <p className="text-sm text-gray-300">Mở cửa 24/7</p>
+            </div>
+          </div>
+
+          {/* Services */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold tracking-wider text-white uppercase">Dịch vụ</h3>
+            <ul className="space-y-2">
+              {services.map((service) => (
+                <li key={service} className="text-sm text-gray-400 hover:text-primary transition-colors">
+                  ✓ {service}
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Quick Links */}
@@ -70,8 +100,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.text}>
-                  <a href={link.href} className="hover:text-primary transition-colors duration-300">
-                    {link.text}
+                  <a href={link.href} className="text-sm hover:text-primary transition-colors duration-300">
+                    → {link.text}
                   </a>
                 </li>
               ))}
@@ -83,9 +113,9 @@ const Footer = () => {
             <h3 className="text-lg font-semibold tracking-wider text-white uppercase">Liên hệ</h3>
             <ul className="space-y-3">
               {contactInfo.map((item) => (
-                <li key={item.text} className="flex items-center justify-center md:justify-start">
-                  <div className="flex-shrink-0 text-primary">{item.icon}</div>
-                  <a href={item.href} className="hover:text-primary transition-colors duration-300 ml-3">
+                <li key={item.text} className="flex items-start">
+                  <div className="flex-shrink-0 text-primary mr-3 mt-1">{item.icon}</div>
+                  <a href={item.href} className="text-sm hover:text-primary transition-colors duration-300">
                     {item.text}
                   </a>
                 </li>
@@ -98,13 +128,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold tracking-wider text-white uppercase">Gọi ngay!</h3>
             <a
               href="tel:0345421303"
-              className="inline-block bg-primary text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-primary-dark transform hover:-translate-y-1 transition-all duration-300 shadow-lg"
+              className="inline-block bg-primary text-white font-bold py-3 px-6 rounded-lg text-base hover:bg-primary-dark transform hover:-translate-y-1 transition-all duration-300 shadow-lg w-full text-center"
             >
               0345421303
             </a>
-            <div className="pt-4">
-              <h4 className="text-md font-semibold text-white mb-3">Kết nối với chúng tôi</h4>
-              <div className="flex justify-center md:justify-start space-x-5">
+            <div className="space-y-3">
+              <h4 className="text-sm font-semibold text-white">Theo dõi chúng tôi</h4>
+              <div className="flex space-x-4">
                 <SocialIcon href="#" title="Facebook">
                   <FacebookIcon />
                 </SocialIcon>
@@ -113,13 +143,30 @@ const Footer = () => {
                 </SocialIcon>
               </div>
             </div>
+            <div className="pt-2 border-t border-gray-700">
+              <p className="text-xs text-gray-500">Đánh giá: ⭐⭐⭐⭐⭐ (4.9/5)</p>
+            </div>
           </div>
 
         </div>
+
+        {/* Benefits Section */}
+        <div className="mt-16 pt-8 border-t border-gray-800">
+          <h3 className="text-xl font-bold text-white text-center mb-8">Tại sao chọn chúng tôi?</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {benefits.map((benefit) => (
+              <div key={benefit} className="bg-gray-800 rounded-lg p-4 text-center hover:bg-gray-700 transition-colors">
+                <p className="text-sm font-semibold text-primary mb-1">✓</p>
+                <p className="text-sm text-gray-300">{benefit}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="bg-gray-900/50 border-t border-gray-800 py-4 px-4 sm:px-6 lg:px-8">
+
+      <div className="bg-gray-900/50 border-t border-gray-800 py-6 px-4 sm:px-6 lg:px-8">
         <p className="text-center text-gray-500 text-sm">
-          &copy; {new Date().getFullYear()} Bạn Cứ Uống, Tôi Lái. All Rights Reserved.
+          &copy; {new Date().getFullYear()} Bạn Cứ Uống, Tôi Lái. All Rights Reserved. | Designed with ❤️ for you
         </p>
       </div>
     </footer>
