@@ -48,13 +48,13 @@ const Hero = () => {
           className={`transition-all duration-1000 ease-out ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4 text-shadow-lg">
-            Bạn Cứ Uống, Tôi Lái
+            🚘 Đồng hành cùng bạn <br/>trên mọi hành trình tại Đà Nẵng
           </h1>
           <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-gray-200 text-shadow-md">
-            An toàn là trên hết. Tận hưởng cuộc vui, việc đưa bạn và xe về nhà an toàn đã có chúng tôi lo.
+            ✔️ Xe ghép – Xe tiện chuyến – Lái xe hộ chuyên nghiệp
           </p>
           <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-gray-200 text-shadow-md">
-            Đã uống rượu bia thì không lái xe.
+           ✔️ Đón tận nơi – Đi đúng giờ – Giá hợp lý
           </p>
         </div>
         <div 

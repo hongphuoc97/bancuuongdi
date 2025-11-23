@@ -53,7 +53,7 @@ const FloatingContactButtons = () => {
       id: 'messenger',
       label: 'Messenger',
       icon: <MessengerIcon />,
-      href: 'https://m.me/bancuuongdi',
+      href: 'https://www.facebook.com/profile.php?id=61554510803672',
       bgColor: 'bg-blue-500 hover:bg-blue-600',
       target: '_blank',
     },
@@ -61,7 +61,7 @@ const FloatingContactButtons = () => {
       id: 'zalo',
       label: 'Zalo',
       icon: <ZaloIcon />,
-      href: 'https://zalo.me/0345421303',
+      href: 'https://zalo.me/0905761912',
       bgColor: 'bg-blue-600 hover:bg-blue-700',
       target: '_blank',
     },
@@ -72,7 +72,6 @@ const FloatingContactButtons = () => {
       {/* Floating Button Container */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col-reverse items-end gap-3">
         {/* Contact Options */}
-        {isOpen && (
           <div className="flex flex-col gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300">
             {contactOptions.map((option) => (
               <a
@@ -92,7 +91,6 @@ const FloatingContactButtons = () => {
               </a>
             ))}
           </div>
-        )}
 
         {/* Main Toggle Button */}
         <button

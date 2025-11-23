@@ -1,50 +1,63 @@
 import React, { useState } from 'react';
 
 // Dữ liệu mẫu cho các bài viết
+// Dữ liệu mẫu cho các bài viết (đã chỉnh sửa, không trùng lặp)
 const posts = [
   {
     id: 1,
     title: '5 Mẹo Sử Dụng Xe Tay Ga Bền Bỉ, Tiết Kiệm Xăng',
-    description: 'Khám phá những bí quyết đơn giản giúp chiếc xe tay ga của bạn luôn vận hành êm ái, bền bỉ và tối ưu hóa mức tiêu thụ nhiên liệu.',
-    imageUrl: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    description:
+      'Những thói quen đơn giản giúp xe tay ga vận hành êm, ít hư vặt và giảm đáng kể mức tiêu thụ nhiên liệu trong đô thị.',
+    imageUrl:
+      'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
     href: '#!',
   },
   {
     id: 2,
     title: 'Top Các Địa Điểm Cứu Hộ Xe Uy Tín Tại Đà Nẵng',
-    description: 'Lưu ngay danh sách các địa chỉ cứu hộ xe máy, ô tô chuyên nghiệp và nhanh chóng tại Đà Nẵng để không phải lo lắng khi xe gặp sự cố.',
-    imageUrl: '/xecuuho.png',
+    description:
+      'Tổng hợp các đơn vị cứu hộ xe máy, ô tô hỗ trợ 24/7, có mặt nhanh tại hiện trường, giá cả minh bạch cho khách hàng.',
+    imageUrl: '/xecuuho.png', // ảnh riêng cho chủ đề cứu hộ
     href: '#!',
   },
   {
     id: 3,
     title: 'Ăn Gì Ở Đà Nẵng? Các Quán Ăn Ngon Không Thể Bỏ Lỡ',
-    description: 'Từ mỳ Quảng, bánh tráng thịt heo đến các loại hải sản tươi sống, cùng khám phá bản đồ ẩm thực đặc sắc của thành phố biển xinh đẹp.',
-    imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    description:
+      'Gợi ý những quán mỳ Quảng, bún chả cá, bánh tráng thịt heo và hải sản tươi sống được người địa phương yêu thích.',
+    imageUrl:
+      'https://images.unsplash.com/photo-1553621042-f6e147245754?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80',
     href: '#!',
   },
-    {
+  {
     id: 4,
-    title: 'Ăn Gì Ở Đà Nẵng? Các Quán Ăn Ngon Không Thể Bỏ Lỡ',
-    description: 'Từ mỳ Quảng, bánh tráng thịt heo đến các loại hải sản tươi sống, cùng khám phá bản đồ ẩm thực đặc sắc của thành phố biển xinh đẹp.',
-    imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    title: 'Top 5 Điểm Sống Ảo Đẹp Nhất Tại Đà Nẵng',
+    description:
+      'Check-in cháy máy với cầu Rồng, cầu Tình Yêu, biển Mỹ Khê, Bà Nà Hills và hàng loạt góc chụp siêu đẹp trong thành phố.',
+    imageUrl:
+      'https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     href: '#!',
   },
-    {
+  {
     id: 5,
-    title: 'Ăn Gì Ở Đà Nẵng? Các Quán Ăn Ngon Không Thể Bỏ Lỡ',
-    description: 'Từ mỳ Quảng, bánh tráng thịt heo đến các loại hải sản tươi sống, cùng khám phá bản đồ ẩm thực đặc sắc của thành phố biển xinh đẹp.',
-    imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    title: 'Kinh Nghiệm Đi Hội An Từ Đà Nẵng Bằng Xe Máy',
+    description:
+      'Hướng dẫn đường đi, thời gian xuất phát lý tưởng, chỗ gửi xe và những điểm dừng chân thú vị trên cung đường Đà Nẵng – Hội An.',
+    imageUrl:
+      'https://images.unsplash.com/photo-1541417904950-b855846fe074?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     href: '#!',
   },
-    {
+  {
     id: 6,
-    title: 'Ăn Gì Ở Đà Nẵng? Các Quán Ăn Ngon Không Thể Bỏ Lỡ',
-    description: 'Từ mỳ Quảng, bánh tráng thịt heo đến các loại hải sản tươi sống, cùng khám phá bản đồ ẩm thực đặc sắc của thành phố biển xinh đẹp.',
-    imageUrl: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    title: 'Hướng Dẫn Thuê Xe Tự Lái Tại Đà Nẵng – Lưu Ý Quan Trọng',
+    description:
+      'Các bước thuê xe tự lái an toàn: chuẩn bị giấy tờ, kiểm tra tình trạng xe, đọc kỹ hợp đồng và những khoản phí dễ bị bỏ sót.',
+    imageUrl:
+      'https://images.unsplash.com/photo-1483721310020-03333e577078?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     href: '#!',
   },
 ];
+
 
 const News = () => {
   const [currentPage, setCurrentPage] = useState(1);

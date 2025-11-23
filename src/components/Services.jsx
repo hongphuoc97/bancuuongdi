@@ -25,7 +25,7 @@ const servicesData = [
   },
   {
     icon: <RideShareIcon />,
-    title: 'Xe tiện chuyến',
+    title: 'Xe ghép',
     description: 'Dịch vụ đi chung xe, tiết kiệm chi phí cho các chuyến đi giữa các thành phố hoặc ra sân bay.',
   },
   {
@@ -81,7 +81,7 @@ const Services = () => {
   const [ref, isInView] = useInView({ threshold: 0.1 });
 
   return (
-    <section id="services" className="text-center py-20 md:py-28 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section id="services" className="text-center py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 pb-2 md:pb-2">
       <div className="max-w-4xl mx-auto">
         <h3 className="text-3xl md:text-5xl font-extrabold mb-2 text-gray-900">
           Dịch vụ của chúng tôi
@@ -91,20 +91,8 @@ const Services = () => {
         </p>
       </div>
 
-      {/* Services Grid */}
-      <div ref={ref} className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-8 mb-16">
-        {servicesData.map((service, index) => (
-          <ServiceItem 
-            key={service.title} 
-            {...service} 
-            isInView={isInView} 
-            delay={`${index * 150}ms`} 
-          />
-        ))}
-      </div>
-
       {/* Pricing Table Section */}
-      <div className="max-w-6xl mx-auto mt-20">
+      <div className="max-w-6xl mx-auto mt-8 md:mt-12">
         <h3 className="text-3xl md:text-4xl font-extrabold mb-4 text-gray-900">
           Bảng giá dịch vụ
         </h3>
@@ -146,6 +134,18 @@ const Services = () => {
             <span><strong>Hotline:</strong> <a href="tel:0345421303" className="text-primary hover:underline font-bold">0345.421.303</a></span>
           </p>
         </div>
+      </div>
+
+      {/* Services Grid */}
+      <div ref={ref} className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-8 mb-16 mt-8 md:mt-12">
+        {servicesData.map((service, index) => (
+          <ServiceItem 
+            key={service.title} 
+            {...service} 
+            isInView={isInView} 
+            delay={`${index * 150}ms`} 
+          />
+        ))}
       </div>
     </section>
   );

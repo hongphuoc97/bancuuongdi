@@ -5,7 +5,7 @@ import Button from './Button';
 import PhoneIcon from './icon/web/PhoneIcon';
 import MenuIcon from './icon/web/MenuIcon';
 import CloseIcon from './icon/web/CloseIcon';
-import logo from '../assets/logo.png';
+import logo from '../assets/logoghep.png';
 
 const NavLink = ({ href, text, isActive, onClick, isScrolled }) => (
   <a
@@ -28,7 +28,7 @@ const NavLink = ({ href, text, isActive, onClick, isScrolled }) => (
 const Logo = ({ onClick, cssClass }) => (
     <a href="#hero" className={cssClass} onClick={onClick}>
         <img src={logo} alt="Bạn Cứ Uống, Tôi Lái" className="h-12" />
-        <span>Bạn cứ uống, tôi lái</span>
+        <span>Xe ghép xe tiện chuyến Đà Nẵng</span>
     </a>
 );
 

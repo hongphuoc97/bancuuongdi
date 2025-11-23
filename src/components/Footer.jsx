@@ -10,6 +10,7 @@ const SocialIcon = ({ href, title, children }) => (
   <a
     href={href}
     aria-label={title}
+    target='_blank'
     className="text-gray-400 hover:text-primary transform hover:scale-110 transition-all duration-300"
   >
     <span className="sr-only">{title}</span>
@@ -28,12 +29,12 @@ const FacebookIcon = () => (
   </svg>
 );
 
-// A more distinct placeholder icon for Zalo
+// Zalo icon with Zalo text
 const ZaloIcon = () => (
-    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <title>Zalo</title>
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 12v.01M12 6.5c-3.038 0-5.5 2.462-5.5 5.5s2.462 5.5 5.5 5.5 5.5-2.462 5.5-5.5-2.462-5.5-5.5-5.5z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
+        <rect x="1" y="1" width="22" height="22" rx="3" fill="#0084FF"/>
+        <text x="12" y="17" fontSize="9" fontWeight="900" fill="white" textAnchor="middle" fontFamily="Arial, sans-serif" letterSpacing="-0.5">Zalo</text>
     </svg>
 );
 
@@ -135,10 +136,10 @@ const Footer = () => {
             <div className="space-y-3">
               <h4 className="text-sm font-semibold text-white">Theo dõi chúng tôi</h4>
               <div className="flex space-x-4">
-                <SocialIcon href="#" title="Facebook">
+                <SocialIcon href="https://www.facebook.com/people/Xe-gh%C3%A9p-xe-ti%E1%BB%87n-chuy%E1%BA%BFn-%C4%90%C3%A0-N%E1%BA%B5ng/61554510803672/" title="Facebook" target="_blank">
                   <FacebookIcon />
                 </SocialIcon>
-                <SocialIcon href="#" title="Zalo">
+                <SocialIcon href="https://zalo.me/0905761912" title="Zalo">
                   <ZaloIcon />
                 </SocialIcon>
               </div>
