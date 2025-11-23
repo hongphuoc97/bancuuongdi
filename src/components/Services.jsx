@@ -58,8 +58,8 @@ const priceData = [
   {
     route: 'Đà Nẵng - Huế',
     prices: [
-      { type: 'Xe 4 chỗ', price: '900.000đ' },
-      { type: 'Xe 6 chỗ', price: '1.000.000đ' },
+      { type: 'Xe 4 chỗ', price: '1.000.000đ' },
+      { type: 'Xe 6 chỗ', price: '1.250.000đ' },
     ]
   },
 ];

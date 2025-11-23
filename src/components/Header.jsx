@@ -185,14 +185,14 @@ export const Header = ({ onBookNowClick }) => {
               </a>
             ))}
             <div className="pt-3 px-4">
-              <Button
+              {/* <Button
                 href="tel:0345421303"
                 icon={<PhoneIcon />}
                 variant="accent"
                 fullWidth={true}
               >
                 Đặt xe ngay
-              </Button>
+              </Button> */}
             </div>
           </nav>
         </div>
