@@ -21,7 +21,7 @@ function App() {
   const closePopup = () => setIsPopupOpen(false);
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <Header onBookNowClick={openPopup} />
       <main>
         <Hero onBookNowClick={openPopup} />

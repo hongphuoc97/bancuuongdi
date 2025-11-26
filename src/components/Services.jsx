@@ -42,21 +42,21 @@ const servicesData = [
 
 const priceData = [
   {
-    route: 'Đà Nẵng - Hội An',
+    route: 'Đà Nẵng ⇄ Hội An',
     prices: [
-      { type: 'Xe 4 chỗ', price: '300.000đ' },
-      { type: 'Xe 6 chỗ', price: '400.000đ' },
+      { type: 'Xe 4 chỗ', price: '250.000đ' },
+      { type: 'Xe 6 chỗ', price: '350.000đ' },
     ]
   },
   {
-    route: 'Đà Nẵng - Tam Kỳ',
+    route: 'Đà Nẵng ⇄ Tam Kỳ',
     prices: [
-      { type: 'Xe 4 chỗ', price: '550.000đ' },
-      { type: 'Xe 6 chỗ', price: '650.000đ' },
+      { type: 'Xe 4 chỗ', price: '450.000đ' },
+      { type: 'Xe 6 chỗ', price: '550.000đ' },
     ]
   },
   {
-    route: 'Đà Nẵng - Huế',
+    route: 'Đà Nẵng ⇄ Huế',
     prices: [
       { type: 'Xe 4 chỗ', price: '1.000.000đ' },
       { type: 'Xe 6 chỗ', price: '1.250.000đ' },

@@ -137,11 +137,11 @@ export const Header = ({ onBookNowClick }) => {
           ))}
         </nav>
 
-        <div className="hidden lg:block ml-4">
+        {/* <div className="hidden lg:block ml-4">
           <Button href="tel:0345421303" icon={<PhoneIcon />} variant="primary">
             Đặt xe ngay
           </Button>
-        </div>
+        </div> */}
 
         <div className="lg:hidden">
           <button
